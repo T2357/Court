@@ -22,6 +22,6 @@ $query1 ="INSERT INTO `client` ( `NAME`, `PASSWORD`, `EMAIL`) VALUES ( '$NAME', 
 
 $sql=mysqli_query($con,$query1);
 
-header('location:create.php');
+header('location:login.php');
 
 ?>

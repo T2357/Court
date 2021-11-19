@@ -1,0 +1,29 @@
+*{margin: 0; padding: 1px; border: border-box;
+    font-family: "Times New Roman", Times, serif;}
+
+#button{
+    background-color:cornflowerblue;
+    color:whitesmoke;
+    height: 50px;
+    width: 50px;
+}
+body{
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  width:100%;
+  color:blueviolet
+  }
+  
+  
+  .carousel{
+    width: 140vh;
+    height: 60vh;
+  }
+  
+  .container{
+    float: left;
+  }
+  

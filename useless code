@@ -1,0 +1,180 @@
+<?php
+session_start();
+$EMAIL = $_SESSION['EMAIL'];
+$sql = "SELECT NAME FROM `advocate` WHERE `EMAIL` = 'Pallavi@gmail.com'";
+$result = mysqli_query($con,$sql);
+ ?>
+
+<h1><?php echo $result; ?></h1>
+<main>
+
+          <div class="cards">
+             <div class="card-single">
+                <div>
+                  <h1><h1>
+                   <a href=""> <span>Case Management</span></a>
+                </div>
+              <div><img src="https://img.icons8.com/office/30/000000/law.png"/>
+               </div>
+           </div>
+           <div class="card-single">
+            <div>
+              <h1><h1>
+                <a href=""><span>Hearing Dates Management</span></a>
+            </div>
+          <div>
+            <img src="https://img.icons8.com/doodle/30/000000/court.png"/>
+           </div>
+       </div>
+       <div class="card-single">
+        <div>
+          <h1><h1>
+            <a href=""><span>To-Dos Management</span></a>
+        </div>
+      <div>
+        <img src="https://img.icons8.com/external-justicon-flat-justicon/30/000000/external-to-do-list-working-from-home-justicon-flat-justicon.png"/>
+       </div>
+   </div>
+   
+<div class="card-single">
+  <div>
+    <h1><h1>
+      <a href=""><span>Easy legal Invoice</span></a>
+  </div>
+<div>
+  <img src="https://img.icons8.com/material-two-tone/30/000000/bill-copy.png"/>
+ </div>
+</div>
+<div class="card-single">
+  <div>
+    <h1><h1>
+      <a href=""><span>Documents Management</span></a>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/30/000000/external-document-business-vitaliy-gorbachev-blue-vitaly-gorbachev-4.png"/>
+ </div>
+</div>
+<div class="card-single">
+  <div>
+    <h1><h1>
+      <a href=""><span>Clients Management</span></a>
+  </div>
+<div>
+  <img src="https://img.icons8.com/color/30/000000/commercial-development-management.png"/>
+ </div>
+</div>
+
+<div class="card-single">
+  <div>
+    <h1><h1>
+      <a href=""><span>Notes Management</span></a>
+  </div>
+<div>
+  <img src="https://img.icons8.com/doodle/30/000000/apple-notes.png"/>
+ </div>
+</div>
+
+  </div>
+  </div>
+      </main>
+
+      <li><a href="feedback.php"><h7>Feedback<img src="https://img.icons8.com/office/15/000000/feedback.png"/></h7></li></a>
+
+
+      <?php
+include 'connection.php';
+session_start();
+$EMAIL = $_SESSION['EMAIL'];
+$sql = "SELECT NAME FROM `advocate` WHERE `EMAIL` = 'Pallavi@gmail.com'";
+$result = mysqli_query($con,$sql);
+$num = mysqli_num_rows($result);
+if($num> 0){
+    $row= mysqli_fetch_assoc($result);
+}
+ ?>
+ <p align="center"><input type="button" onclick="myPrint('invoices')" value="Print Invoice"></p>
+    <script>
+        function myPrint(invoices) {
+            var printdata = document.getElementById(invoices);
+            newwin = window.open("");
+            newwin.document.write(printdata.outerHTML);
+            newwin.print();
+            newwin.close();
+        }
+    </script>
+
+<div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+               <h2 id="invo">INVOICES</h2>
+                <div>
+                <?php
+  $sql1 = "SELECT * FROM `invoice` WHERE EMAIL = '$EMAIL'";
+  $result1 = mysqli_query($con,$sql1);
+    if(mysqli_num_rows($result1) > 0) {
+ ?>
+               <table id="mytable"  style="background-color:whitesmoke;color:blueviolet; border: 3px solid  #1273;">
+
+<tr style="border: 3px solid  #1273;">
+
+  <td style="border: 3px solid  #1273;"><b>Invoice Number</b></td>
+  <td style="border: 3px solid  #1273;"><b>Case Number</b></td>
+  <td style="border: 3px solid  #1273;"><b>Date</b> </td>
+  <td style="border: 3px solid  #1273;"><b>Client Name</b> </td>
+  <td style="border: 3px solid  #1273;"><b>Service</b> </td>
+  <td style="border: 3px solid  #1273;"><b>Amount</b> </td>
+  <td style="border: 3px solid  #1273;"><b>Status</b> </td>
+  <td style="border: 3px solid  #1273;"><b> Cleint Contact</b> </td>
+</tr>
+<?php
+    $i=0;
+    while($row = mysqli_fetch_array($result1)) {
+    ?>
+    <tr style="color:cornflowerblue;">
+
+        <td style="border: 3px solid  #1273;font-size:20px;"><b><?php echo $row["INVOICE_NO"]; ?></b></td>
+        <td style="border: 3px solid  #1273;font-size:20px;"><b><?php echo $row["CASE_NO"]; ?></b></td>
+        <td style="border: 3px solid  #1273;font-size:20px;"><b><?php echo $row["DATE"]; ?></b></td>
+        <td style="border: 3px solid  #1273;font-size:20px;"><b><?php echo $row["C_NAME"]; ?></b></td>
+        <td style="border: 3px solid  #1273;font-size:20px;"><b><?php echo $row["SERVICE"]; ?></b></td>
+        <td style="border: 3px solid  #1273;font-size:20px;"><b><?php echo $row["AMOUNT"]; ?></b></td>
+        <td style="border: 3px solid  #1273;font-size:20px;"><b><?php echo $row["STATUS"]; ?></b></td>
+        <td style="border: 3px solid  #1273;font-size:20px;"><b><?php echo $row["C_NO"]; ?></b></td>
+    </tr>
+    <?php
+    $i++;
+    }
+    ?>
+    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light app-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/Images/logo.png" class="img-fluid d-inline-block align-top nav-logo" style="max-height: 45px;"/>
+            </a>
+            <button class="navbar-toggler my-2" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-column align-items-end ml-lg-2 ml-0 layout" id="navbarCollapse">
+                <ul class="navbar-nav flex-row mb-md-1 mt-md-0 mb-3 mt-2">
+                        <li class="nav-item dropdown p-sm-1">
+                            <a class="nav-link text-success dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor:text;text-decoration:none;">
+                                Welcome Tushar
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link dropdown-item" href="/Users/UpdateProfile">Update Profile</a>
+                                <a class="nav-link dropdown-item" href="/Users/ChangePassword">Change Password</a>
+                                <a class="nav-link dropdown-item" href="/logout">Sign Out</a>
+                            </div>
+                        </li>
+                        <li class="nav-item p-sm-1 active">
+                            <a class="nav-link text-info" href="/users/dashboard">Dashboard</a>
+                        </li>
+                </ul>             
+            </div>
+        </div>
+    </nav>

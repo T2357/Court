@@ -6,7 +6,21 @@
   <link rel="stylesheet" type="text/css" href="index.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body style="background-color:lightgreen; color:rgb(75,0,130); margin: right 3px;">
+<body>
+  <style>
+    body{
+    background-color:lightgreen; 
+    color:rgb(75,0,130);}
+    h1, h4 {
+      margin-left: 15px;
+    }
+    p{
+      color:cornflowerblue;
+    }
+    h3{
+      margin-left: 15px;
+    }
+    </style>
 <div class="menu-bar">
 
   <ul>
@@ -22,9 +36,9 @@
 <h3><i><b> Lawyer's Virtual Office is a product of the digital age, purpose-designed for Indian lawyers, law firms, and legal departments. Our web-based case management software provides solutions to the challenges faced in organizing, streamlining, and effectively utilizing the dynamic information that advocates and law firms handle each day</i><b></h3>
 </div>
 <h3><b>Our Vision
-</b></h3><p>To provide a virtual office that is always on.</p>
-<h3><b>Our Mission</b></h3><p>To help legal departments,lawyer, firms scale up and evolve digitally in a technology-rich landscape</p>
-<h3><b>Our Promise</b></h3><h5>*It streamlines cases<br>*
+</b></h3><h3>To provide a virtual office that is always on.</h3>
+<h3><b>Our Mission</b></h3><h3>To help legal departments,lawyer, firms scale up and evolve digitally in a technology-rich landscape</h3>
+<h3><b>Our Promise</b></h3><h4>*It streamlines cases<br>*
 It is tailored to real-world workflows<br>*
 It simplifies information sharing<br>*
 It offers unmatched usability<br>*
@@ -33,7 +47,7 @@ It is accessible on any internet-enabled device<br>*
 It is useful for the individual as well as teams<br>*
 It is an eco-friendly solution<br>*
 It is specially designed for Indian lawyers and law firms<br>*
-Saves significant time</h5>
+Saves significant time</h4>
 <?php include 'footer.php' ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
